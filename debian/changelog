@@ -1,6 +1,7 @@
 tty-clock (0~git20090617-1) unstable; urgency=low
 
   * Initial release (Closes: #609634)
-  * Respect $DESTDIR
+  * Respect $DESTDIR and $PREFIX and use it
+  * Merge in bugfixes found in related github branches
 
  -- Antoine Beaupré <anarcat@koumbit.org>  Mon, 10 Jan 2011 22:54:48 -0500
