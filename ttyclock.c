@@ -414,19 +414,19 @@ main(int argc, char **argv)
      /* Date format */
      ttyclock->option.format = malloc(sizeof(char) * 100);
      /* Default date format */
-     strncpy(ttyclock->option.format, "%d/%m/%Y", 100);
+     strncpy(ttyclock->option.format, "%F", 100);
      /* Default color */
      ttyclock->option.color = COLOR_GREEN; /* COLOR_GREEN = 2 */
      /* Default delay */
      ttyclock->option.delay = 40000000; /* 25FPS */
 
-     while ((c = getopt(argc, argv, "tvsrcihfd:C:")) != -1)
+     while ((c = getopt(argc, argv, "tvsrcihf:d:C:")) != -1)
      {
           switch(c)
           {
           case 'h':
           default:
-               printf("usage : tty-clock [-sctrvih] [-C [0-7]] [-f format]              \n"
+               printf("usage : tty-clock [-sctrvih] [-C [0-7]] [-f format] [-d delay]   \n"
                       "    -s            Show seconds                                   \n"
                       "    -c            Set the clock at the center of the terminal    \n"
                       "    -C [0-7]      Set the clock color                            \n"
