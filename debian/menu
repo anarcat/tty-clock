@@ -1,0 +1,2 @@
+?package(tty-clock):needs="text|vc" section="Games/Toys"\
+  title="tty-clock" command="/usr/bin/tty-clock"

@@ -1,0 +1,17 @@
+Source: tty-clock
+Section: utils
+Priority: extra
+Maintainer: Antoine Beaupré <anarcat@koumbit.org>
+Build-Depends: cdbs, debhelper (>= 7.0.50~)
+Standards-Version: 3.8.4
+Homepage: http://github.com/xorg62/tty-clock/
+Vcs-Git: git://github.com/xorg62/tty-clock.git
+Vcs-Browser: http://github.com/xorg62/tty-clock/
+
+Package: tty-clock
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: simple terminal clock
+ tty-clock is a simple ncurses-based clock that shows the time and date
+ using a large display. It has a few commandline options to customize
+ the output.
