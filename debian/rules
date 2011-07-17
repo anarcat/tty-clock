@@ -1,9 +1,8 @@
 #!/usr/bin/make -f
+# -*- makefile -*-
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/class/makefile.mk
-include /usr/share/cdbs/1/rules/patchsys-quilt.mk
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
 
-# Add here any variable or target overrides you need.
-DEB_MAKE_EXTRA_ARGS=
-DEB_MAKE_INSTALL_TARGET=install DESTDIR=$(cdbs_make_curdestdir) PREFIX='/usr'
+%:
+	dh $@
