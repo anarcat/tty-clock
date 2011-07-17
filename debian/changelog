@@ -1,3 +1,11 @@
+tty-clock (1.0-1) unstable; urgency=low
+
+  * Officially release 1.0
+  * Port to dh(7) from cdbs
+  * Add git-buildpackage config
+
+ -- Antoine Beaupré <anarcat@koumbit.org>  Sat, 16 Jul 2011 22:34:51 -0400
+
 tty-clock (0~git20090617-1) unstable; urgency=low
 
   * Initial release (Closes: #609634)
