@@ -1,8 +1,10 @@
 tty-clock (1.0-2) unstable; urgency=low
 
   * Add DM-Upload-Allowed field so that I can upload the package myself.
+  * Add missing ncurses dependency (Closes: #637711)
+  * Try to close ITP again (Closes: #609634).
 
- -- Antoine Beaupré <anarcat@koumbit.org>  Sat, 06 Aug 2011 14:30:50 +0200
+ -- Antoine Beaupré <anarcat@koumbit.org>  Sun, 14 Aug 2011 11:46:55 +0200
 
 tty-clock (1.0-1) unstable; urgency=low
 
