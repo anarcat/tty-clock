@@ -3,7 +3,7 @@ Section: utils
 Priority: extra
 Maintainer: Antoine Beaupré <anarcat@koumbit.org>
 DM-Upload-Allowed: yes
-Build-Depends: cdbs, debhelper (>= 7.0.50~), quilt, libncurses5-dev
+Build-Depends: debhelper (>= 7.0.50~), libncurses5-dev
 Standards-Version: 3.9.1
 Homepage: http://github.com/xorg62/tty-clock/
 Vcs-Git: git://github.com/xorg62/tty-clock.git
