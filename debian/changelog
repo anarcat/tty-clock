@@ -1,3 +1,13 @@
+tty-clock (1.0-4) unstable; urgency=low
+
+  * fix more lintian errors
+    * update to policy 3.9.2, no change
+    * remove template from copyright file
+    * just one big patch, we track changes in git
+    * we still don't have a manpage though
+
+ -- Antoine Beaupré <anarcat@koumbit.org>  Wed, 26 Oct 2011 22:42:47 -0400
+
 tty-clock (1.0-3) unstable; urgency=low
 
   * Fix lintian warnings:
