@@ -3,9 +3,10 @@ tty-clock (1.1-1) unstable; urgency=low
   * fix my email address
   * no more DM field, I am a DD
   * remove useless todo, we have an upstream 1.0
-  * fix compile with --as-needed", thanks to Julian Taylor (Closes:
-    #647316).
+  * fix compile with --as-needed", thanks to Julian Taylor
+    (Closes: #647316).
   * new upstream release factors in all patches
+  * do not require upstream branch in git-buildpackage
 
  -- Antoine Beaupré <anarcat@debian.org>  Sun, 06 Nov 2011 22:40:09 -0500
 
