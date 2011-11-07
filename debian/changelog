@@ -3,8 +3,11 @@ tty-clock (1.1-1) unstable; urgency=low
   * fix my email address
   * no more DM field, I am a DD
   * remove useless todo, we have an upstream 1.0
+  * fix compile with --as-needed", thanks to Julian Taylor (Closes:
+    #647316).
+  * new upstream release factors in all patches
 
- -- Antoine Beaupré <anarcat@debian.org>  Sun, 06 Nov 2011 22:36:08 -0500
+ -- Antoine Beaupré <anarcat@debian.org>  Sun, 06 Nov 2011 22:40:09 -0500
 
 tty-clock (1.0-4) unstable; urgency=low
 
