@@ -1,6 +1,6 @@
 This work was packaged for Debian by:
 
-    Antoine Beaupré <anarcat@koumbit.org> on Mon, 10 Jan 2011 22:54:48 -0500
+    Antoine Beaupré <anarcat@debian.org> on Mon, 10 Jan 2011 22:54:48 -0500
 
 It was downloaded from:
 
@@ -47,7 +47,7 @@ License:
 
 The Debian packaging is:
 
-    Copyright (C) 2011 Antoine Beaupré <anarcat@koumbit.org>
+    Copyright (C) 2011 Antoine Beaupré <anarcat@debian.org>
 
 and is licensed under the GPL version 3,
 see "/usr/share/common-licenses/GPL-3".

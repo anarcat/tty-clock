@@ -1,8 +1,7 @@
 Source: tty-clock
 Section: utils
 Priority: extra
-Maintainer: Antoine Beaupré <anarcat@koumbit.org>
-DM-Upload-Allowed: yes
+Maintainer: Antoine Beaupré <anarcat@debian.org>
 Build-Depends: debhelper (>= 7.0.50~), libncurses5-dev
 Standards-Version: 3.9.2
 Homepage: http://github.com/xorg62/tty-clock/
