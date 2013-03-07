@@ -478,14 +478,14 @@ main(int argc, char **argv)
                break;
           case 'i':
                puts("TTY-Clock 2 © by Martin Duquesnoy (xorg62@gmail.com)");
-               free(ttyclock);
                free(ttyclock->option.format);
+               free(ttyclock);
                exit(EXIT_SUCCESS);
                break;
           case 'v':
                puts("TTY-Clock 2 © devel version");
-               free(ttyclock);
                free(ttyclock->option.format);
+               free(ttyclock);
                exit(EXIT_SUCCESS);
                break;
           case 's':
@@ -527,8 +527,8 @@ main(int argc, char **argv)
           key_event();
      }
 
-     free(ttyclock);
      free(ttyclock->option.format);
+     free(ttyclock);
      endwin();
 
      return 0;
