@@ -3,6 +3,7 @@ tty-clock (2.0-1) experimental; urgency=low
   * new upstream (Closes: #689248, #686466, #700738).
   * fix Vcs-$foo headers, thanks to David Bremner (Closes: #702171).
   * upstream now has a manpage (Closes: #686466).
+  * patch: fix hardening flags
 
  -- Antoine Beaupré <anarcat@debian.org>  Fri, 08 Mar 2013 22:30:45 -0500
 
