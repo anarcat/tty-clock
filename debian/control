@@ -2,8 +2,8 @@ Source: tty-clock
 Section: utils
 Priority: extra
 Maintainer: Antoine Beaupré <anarcat@debian.org>
-Build-Depends: debhelper (>= 7.0.50~), libncurses5-dev
-Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9), libncurses5-dev
+Standards-Version: 3.9.4
 Homepage: http://github.com/xorg62/tty-clock/
 Vcs-Git: git://github.com/xorg62/tty-clock.git
 Vcs-Browser: http://github.com/xorg62/tty-clock/

@@ -39,7 +39,19 @@ init(void)
      ttyclock->bg = COLOR_BLACK;
 
      /* Init ncurses */
-     initscr();
+     if (ttyclock->tty) {
+	     FILE *ftty = fopen(ttyclock->tty, "r+");
+	     if (!ftty) {
+		     fprintf(stderr, "tty-clock: error: '%s' couldn't be opened: %s.\n",
+				     ttyclock->tty, strerror(errno));
+		     exit(EXIT_FAILURE);
+	     }
+	     ttyclock->ttyscr = newterm(NULL, ftty, ftty);
+	     assert(ttyclock->ttyscr != NULL);
+	     set_term(ttyclock->ttyscr);
+     } else
+	     initscr();
+
      cbreak();
      noecho();
      keypad(stdscr, True);
@@ -133,6 +145,20 @@ signal_handler(int signal)
      }
 
      return;
+}
+
+void
+cleanup(void)
+{
+	if (ttyclock->ttyscr)
+		delscreen(ttyclock->ttyscr);
+
+	if (ttyclock && ttyclock->tty)
+		free(ttyclock->tty);
+	if (ttyclock && ttyclock->option.format)
+		free(ttyclock->option.format);
+	if (ttyclock)
+		free(ttyclock);
 }
 
 void
@@ -353,6 +379,28 @@ key_event(void)
      int i, c;
 
      struct timespec length = { 0, ttyclock->option.delay };
+     
+     if (ttyclock->option.screensaver)
+     {
+          c = wgetch(stdscr);
+          if(c != ERR && ttyclock->option.noquit == False)
+          {
+               ttyclock->running = False;
+          }
+          else
+          {
+               nanosleep(&length, NULL);
+               for(i = 0; i < 8; ++i)
+                    if(c == (i + '0'))
+                    {
+                         ttyclock->option.color = i;
+                         init_pair(1, ttyclock->bg, i);
+                         init_pair(2, i, ttyclock->bg);
+                    }
+          }
+          return;
+     }
+     
 
      switch(c = wgetch(stdscr))
      {
@@ -390,7 +438,8 @@ key_event(void)
 
      case 'q':
      case 'Q':
-          ttyclock->running = False;
+          if (ttyclock->option.noquit == False)
+		  ttyclock->running = False;
           break;
 
      case 's':
@@ -445,6 +494,8 @@ main(int argc, char **argv)
 
      /* Alloc ttyclock */
      ttyclock = malloc(sizeof(ttyclock_t));
+     assert(ttyclock != NULL);
+     memset(ttyclock, 0, sizeof(ttyclock_t));
 
      /* Date format */
      ttyclock->option.format = malloc(sizeof(char) * 100);
@@ -455,41 +506,44 @@ main(int argc, char **argv)
      /* Default delay */
      ttyclock->option.delay = 40000000; /* 25FPS */
 
-     while ((c = getopt(argc, argv, "tvsrcihbf:d:C:")) != -1)
+     atexit(cleanup);
+
+     while ((c = getopt(argc, argv, "tT:nvsSrcihbf:d:C:")) != -1)
      {
           switch(c)
           {
           case 'h':
           default:
-               printf("usage : tty-clock [-sbctrvih] [-C [0-7]] [-f format] [-d delay]  \n"
+               printf("usage : tty-clock [-sSbctrnvih] [-C [0-7]] [-f format] [-d delay] [-T tty] \n"
                       "    -s            Show seconds                                   \n"
+                      "    -S            Screensaver mode                               \n"
                       "    -b            Show box                                       \n"
                       "    -c            Set the clock at the center of the terminal    \n"
                       "    -C [0-7]      Set the clock color                            \n"
                       "    -t            Set the hour in 12h format                     \n"
+		      "    -T tty        Display the clock on the specified terminal    \n"
                       "    -r            Do rebound the clock                           \n"
                       "    -f format     Set the date format                            \n"
+		      "    -n            Don't quit on keypress                         \n"
                       "    -v            Show tty-clock version                         \n"
                       "    -i            Show some info about tty-clock                 \n"
                       "    -h            Show this page                                 \n"
                       "    -d delay      Set the delay between two redraws of the clock \n");
-               free(ttyclock);
                exit(EXIT_SUCCESS);
                break;
           case 'i':
                puts("TTY-Clock 2 © by Martin Duquesnoy (xorg62@gmail.com)");
-               free(ttyclock->option.format);
-               free(ttyclock);
                exit(EXIT_SUCCESS);
                break;
           case 'v':
                puts("TTY-Clock 2 © devel version");
-               free(ttyclock->option.format);
-               free(ttyclock);
                exit(EXIT_SUCCESS);
                break;
           case 's':
                ttyclock->option.second = True;
+               break;
+          case 'S':
+               ttyclock->option.screensaver = True;
                break;
           case 'c':
                ttyclock->option.center = True;
@@ -514,6 +568,25 @@ main(int argc, char **argv)
           case 'b':
                ttyclock->option.box = True;
                break;
+	  case 'T': {
+	       struct stat sbuf;
+	       if (stat(optarg, &sbuf) == -1) {
+		       fprintf(stderr, "tty-clock: error: couldn't stat '%s': %s.\n",
+				       optarg, strerror(errno));
+		       exit(EXIT_FAILURE);
+	       } else if (!S_ISCHR(sbuf.st_mode)) {
+		       fprintf(stderr, "tty-clock: error: '%s' doesn't appear to be a character device.\n",
+				       optarg);
+		       exit(EXIT_FAILURE);
+	       } else {
+	       		if (ttyclock->tty)
+				free(ttyclock->tty);
+			ttyclock->tty = strdup(optarg);
+	       }}
+	       break;
+	  case 'n':
+	       ttyclock->option.noquit = True;
+	       break;
           }
      }
 
@@ -527,8 +600,6 @@ main(int argc, char **argv)
           key_event();
      }
 
-     free(ttyclock->option.format);
-     free(ttyclock);
      endwin();
 
      return 0;
