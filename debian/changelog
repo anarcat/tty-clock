@@ -1,4 +1,10 @@
-tty-clock (2.0-1) unstable; urgency=low
+tty-clock (2.0-2) unstable; urgency=low
+
+  * upload to unstable
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sun, 05 May 2013 17:12:26 -0400
+
+tty-clock (2.0-1) experimental; urgency=low
 
   * new upstream (Closes: #689248, #686466, #700738).
   * fix Vcs-$foo headers, thanks to David Bremner (Closes: #702171).
