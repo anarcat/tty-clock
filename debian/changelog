@@ -1,4 +1,4 @@
-tty-clock (2.0-1) experimental; urgency=low
+tty-clock (2.0-1) unstable; urgency=low
 
   * new upstream (Closes: #689248, #686466, #700738).
   * fix Vcs-$foo headers, thanks to David Bremner (Closes: #702171).
