@@ -73,11 +73,16 @@ typedef struct
           Bool twelve;
           Bool center;
           Bool rebound;
+          Bool date;
+          Bool utc;
           Bool box;
-	  Bool noquit;
+      	  Bool noquit;
           char *format;
           int color;
+          Bool bold;
           long delay;
+          Bool blink;
+          long nsdelay;
      } option;
 
      /* Clock geometry */
