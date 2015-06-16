@@ -1,6 +1,7 @@
-tty-clock (2.0+20150616-2) unstable; urgency=medium
+tty-clock (2.1-1) unstable; urgency=medium
 
   * new upstream patches
+  * fix build in sid (Closes: #788749)
 
  -- Antoine Beaupré <anarcat@debian.org>  Tue, 16 Jun 2015 09:07:45 -0400
 
