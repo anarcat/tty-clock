@@ -1,0 +1,31 @@
+From a687384dc507be0d670ec1b360b9a2dc615ee001 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Antoine=20Beaupr=C3=A9?= <anarcat@debian.org>
+Date: Fri, 13 Jan 2017 10:06:04 -0500
+Subject: [PATCH] do not silence compiler flags
+
+this creates warnings in Debian, as there are checks to see if we use proper hardening flags, for example.
+
+besides, we *almost* show all the tags in the compile rule, might as well not silence it
+---
+ Makefile | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 2c75bd0..7f8f518 100644
+--- a/Makefile
++++ b/Makefile
+@@ -19,9 +19,8 @@ endif
+ 
+ tty-clock : ${SRC}
+ 
+-	@echo "build ${SRC}"
+-	@echo "CC ${CFLAGS} ${LDFLAGS} ${SRC}"
+-	@${CC} ${CFLAGS} ${SRC} -o ${BIN} ${LDFLAGS}
++	@echo "building ${SRC}"
++	${CC} ${CFLAGS} ${SRC} -o ${BIN} ${LDFLAGS}
+ 
+ install : ${BIN}
+ 
+-- 
+2.11.0
+
