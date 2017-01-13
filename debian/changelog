@@ -1,3 +1,18 @@
+tty-clock (2.1-2) unstable; urgency=medium
+
+  * remove redundant hardcoded dependency on libncurses5, thanks Sven
+    Joachim (Closes: #851245)
+  * fix build with arbitrary ncurses versions (Closes: #851239)
+  * point to github for debian VCS (Closes: #740693)
+  * properly pass LDFLAGS to fix ld --as-needed (Closes: #799212)
+  * bump dh compat to 10
+  * bump standards to latest, no change
+  * bump priority to optional, no reason it was extra
+  * fix gbp sections for latest gbp versions
+  * enable hardening flags, requires upstream patch
+
+ -- Antoine Beaupré <anarcat@debian.org>  Fri, 13 Jan 2017 10:11:07 -0500
+
 tty-clock (2.1-1) unstable; urgency=medium
 
   * new upstream patches
