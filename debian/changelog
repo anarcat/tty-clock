@@ -1,3 +1,12 @@
+tty-clock (2.2-1) unstable; urgency=medium
+
+  * new upstream snapshot, tagged as 2.2
+  * set time structure at the right moment, fixing clock delay
+  * do not track patches in git, upstream responds
+  * use virtual package for ncurses build-dep, they will drop the version
+
+ -- Antoine Beaupré <anarcat@debian.org>  Fri, 13 Jan 2017 17:04:23 -0500
+
 tty-clock (2.1-3) unstable; urgency=medium
 
   * follow ncurses5 for now, until ncurses6 hits the archive, fixes builds
