@@ -3,7 +3,7 @@ Section: utils
 Priority: optional
 Maintainer: Antoine Beaupré <anarcat@debian.org>
 Build-Depends: debhelper (>= 10)
-             , libncurses6-dev | libncurses5-dev
+             , libncurses5-dev
              , pkg-config
 Standards-Version: 3.9.8
 Homepage: https://github.com/xorg62/tty-clock
