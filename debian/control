@@ -10,7 +10,7 @@ Vcs-Browser: https://redmine.koumbit.net/projects/tty-clock/repository
 
 Package: tty-clock
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, libncurses5
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: simple terminal clock
  tty-clock is a simple ncurses-based clock that shows the time and date
  using a large display. It has a few commandline options to customize
