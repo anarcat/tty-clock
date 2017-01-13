@@ -1,6 +1,6 @@
 Source: tty-clock
 Section: utils
-Priority: extra
+Priority: optional
 Maintainer: Antoine Beaupré <anarcat@debian.org>
 Build-Depends: debhelper (>= 10)
              , libncurses6-dev | libncurses5-dev
