@@ -5,7 +5,7 @@ Maintainer: Antoine Beaupré <anarcat@debian.org>
 Build-Depends: debhelper (>= 10)
              , libncurses6-dev | libncurses5-dev
              , pkg-config
-Standards-Version: 3.9.4
+Standards-Version: 3.9.8
 Homepage: https://github.com/xorg62/tty-clock
 Vcs-Git: https://github.com/anarcat/tty-clock.git -b debian
 Vcs-Browser: https://github.com/anarcat/tty-clock/tree/debian
