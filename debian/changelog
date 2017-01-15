@@ -1,3 +1,10 @@
+tty-clock (2.3-1) unstable; urgency=medium
+
+  * new upstream release
+  * remove needless make overrides now that upstream has a clean makefile
+
+ -- Antoine Beaupré <anarcat@debian.org>  Sat, 14 Jan 2017 22:08:31 -0500
+
 tty-clock (2.2-1) unstable; urgency=medium
 
   * new upstream snapshot, tagged as 2.2
